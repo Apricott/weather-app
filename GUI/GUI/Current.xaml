@@ -1,0 +1,18 @@
+﻿<Window x:Class="GUI.Current"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="Current" Height="450" Width="641.6">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\Weronika\source\repos\PoProjekt\sky.jpeg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="208,63,201.2,279" FontSize="30"><Run Text="Aktualna pogoda"/></TextBlock>
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="272,141,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="66" TextWrapping="Wrap" Text="//tutaj opis pogody" VerticalAlignment="Top" Width="226" Margin="208,265,0,0"/>
+        <Button Content="Zapisz aktualną pogodę w bazie danych" HorizontalAlignment="Left" VerticalAlignment="Top" Width="226" Margin="208,368,0,0"/>
+    </Grid>
+</Window>
