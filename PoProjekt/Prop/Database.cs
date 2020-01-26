@@ -5,31 +5,31 @@ using System.Data.SQLite;
 namespace Database
 {
 
-static class Database
-{
-    static private SQLiteConnection databaseConnection; 
-    static private SQLiteCommand databaseCommand;
-    static private SQLiteDataAdapter databaseAdapter;
-    static private SQLiteDataReader databaseReader;
-
-    static Database()
+    static public class Database
     {
-        databaseConnection = new SQLiteConnection(@"Data Source=C:\............\bazaDanychProjekt.db");
-    }
+        static private SQLiteConnection databaseConnection; 
+        static private SQLiteCommand databaseCommand;
+        static private SQLiteDataAdapter databaseAdapter;
+        static private SQLiteDataReader databaseReader;
 
-//konieczna jest zmiana lokalizacji bazy danych
+        static Database()
+        {
+            databaseConnection = new SQLiteConnection(@"Data Source=C:\............\bazaDanychProjekt.db");
+        }
 
-    public static void ExecuteQuery(string commandText)
-    {
-        databaseConnection.Open();
-        databaseCommand = databaseConnection.CreateCommand();
-        databaseCommand.CommandText = commandText;
-        databaseCommand.ExecuteNonQuery();
-        databaseConnection.Close();
-    }
-//funkcja powyżej służy do wykonywania kwerend które nie zwracają wartości, jak na przykład INSERT albo DROP
+    //konieczna jest zmiana lokalizacji bazy danych
 
-    }
+        public static void ExecuteQuery(string commandText)
+        {
+            databaseConnection.Open();
+            databaseCommand = databaseConnection.CreateCommand();
+            databaseCommand.CommandText = commandText;
+            databaseCommand.ExecuteNonQuery();
+            databaseConnection.Close();
+        }
+    //funkcja powyżej służy do wykonywania kwerend które nie zwracają wartości, jak na przykład INSERT albo DROP
 
+     }
+    
 
 }
