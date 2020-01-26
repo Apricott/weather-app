@@ -102,4 +102,9 @@ namespace Database
             {Convert.ToInt32(cityID)}, 'daily', 'Convert.ToString(System.DateTime.Now)')");
         }
     }
+
+    static public WeatherAPI.Weather ExtractWeatherData(string entryTime)
+    {
+        
+    }
 }
