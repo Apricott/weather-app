@@ -13,7 +13,7 @@ namespace PoProjekt
         static void Main(string[] args)
         {
 
-            Weather w1 = WeatherData.GetWeather("Kraków");
+            
             
 
         }

@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\Weronika\source\repos\PoProjekt\sky.jpeg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <TextBlock HorizontalAlignment="Left" Text="Witaj w PogodApp!" TextWrapping="Wrap" VerticalAlignment="Top" Margin="145,72,0,0" Height="100" Width="534" FontSize="65" FontFamily="Bernard" FontWeight="Light" />
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="242,172,222.6,170" FontSize="30"><Run Text="Co chciałbyś sprawdzić?"/></TextBlock>
+        <Button Content="Aktualna pogoda"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="138" Margin="321,250,0,0" Height="29" Click="Button_Click"/>
+        <Button Content="Pogoda godzinowa" HorizontalAlignment="Left" VerticalAlignment="Top" Width="138" Margin="321,304,0,0" Height="29"/>
+        <Button Content="Pogoda dzienna" HorizontalAlignment="Left" VerticalAlignment="Top" Width="138" Margin="321,359,0,0" Height="29"/>
     </Grid>
 </Window>

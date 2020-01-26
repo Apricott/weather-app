@@ -10,31 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WeatherAPIS;
-using Database;
-using ConsoleApp6;
-using static WeatherAPIS.WeatherAPI;
 
 namespace GUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Current.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Current : Window
     {
-        public MainWindow()
+        public Current()
         {
             InitializeComponent();
-            
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Current CurrentWeather = new Current();
-            CurrentWeather.Show();
-            this.Close();
         }
     }
 }
