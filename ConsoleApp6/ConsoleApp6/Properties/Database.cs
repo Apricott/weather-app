@@ -15,7 +15,7 @@ namespace Database
 
     //konieczna jest zmiana lokalizacji bazy danych
 
-    private static void ExecuteQuery(string commandText)
+    private static void ExecuteInsertQuery(string commandText)
     {
         using (databaseConnection = new SQLiteConnection(
             @"Data Source=C:\Users\piotr\source\repos\ConsoleApp4\ConsoleApp4\bazaDanychProjekt.db"))
