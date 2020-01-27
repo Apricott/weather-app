@@ -36,5 +36,19 @@ namespace GUI
             CurrentWeather.Show();
             this.Close();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Hourly hourly = new Hourly();
+            hourly.Show();
+            this.Close();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Daily daily = new Daily();
+            daily.Show();
+            this.Close();
+        }
     }
 }
