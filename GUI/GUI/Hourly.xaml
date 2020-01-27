@@ -1,0 +1,29 @@
+﻿<Window x:Class="GUI.Hourly"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="Hourly" Height="450" Width="643.617">
+    <Grid Margin="0,0,-0.4,-335">
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\Weronika\source\repos\PoProjekt\sky.jpeg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="201,30,186,596" FontSize="30"><Run Text="Pogoda godzinowa"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="72,113,485,523" FontSize="20"><Run Text="Godzina"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="94,175,485,472" FontSize="20"><Run Text="6"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="94,254,485,393" FontSize="20"><Run Text="9"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="94,334,485,312" FontSize="20"><Run Text="12"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="94,419,485,225" FontSize="20"><Run Text="15"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="94,499,485,147" FontSize="20"><Run Text="18"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="94,582,485,65" FontSize="20"><Run Text="21"/></TextBlock>
+        <Image HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="77" Margin="227,581,0,0"/>
+        <Image HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="77" Margin="227,499,0,0"/>
+        <Image HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="77" Margin="227,411,0,0"/>
+        <Image HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="77" Margin="227,334,0,0"/>
+        <Image HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="77" Margin="227,334,0,0"/>
+        <Image HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="77" Margin="227,224,0,0"/>
+
+    </Grid>
+</Window>
