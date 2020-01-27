@@ -8,7 +8,7 @@
         Title="Daily" Height="450" Width="643.617">
     <Grid Margin="0,0,3.6,3">
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Weronika\source\repos\PoProjekt\sky.jpeg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Images/sky.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>
         <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="181,49,148,267" FontSize="30"><Run Text="Dla j"/><Run Text="akiego dnia chcesz sprawdzić pogodę?"/></TextBlock>
         <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="305" Margin="181,155,0,0" Height="32"/>
