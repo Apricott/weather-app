@@ -8,7 +8,7 @@
         Title="Hourly" Height="450" Width="643.617">
     <Grid Margin="0,0,-0.4,-335">
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Weronika\source\repos\PoProjekt\sky.jpeg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Images/sky.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>
         <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="201,30,186,596" FontSize="30"><Run Text="Pogoda godzinowa"/></TextBlock>
         <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="72,113,485,523" FontSize="20"><Run Text="Godzina"/></TextBlock>

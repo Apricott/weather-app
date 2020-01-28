@@ -8,7 +8,7 @@
         Title="Current" Height="450" Width="641.6">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Weronika\source\repos\PoProjekt\sky.jpeg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Images/sky.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>
         <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="208,63,201.2,279" FontSize="30"><Run Text="Aktualna pogoda"/></TextBlock>
         <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="272,141,0,0"/>
