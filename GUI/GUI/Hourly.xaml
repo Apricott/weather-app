@@ -5,25 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="Hourly" Height="450" Width="643.617">
+        Title="Hourly" Height="450" Width="641.6">
     <Grid Margin="0,0,-0.4,-335">
         <Grid.Background>
             <ImageBrush ImageSource="/Images/sky.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>
-        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="201,30,186,596" FontSize="30"><Run Text="Pogoda godzinowa"/></TextBlock>
-        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="72,113,485,523" FontSize="20"><Run Text="Godzina"/></TextBlock>
-        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="94,175,485,472" FontSize="20"><Run Text="6"/></TextBlock>
-        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="94,254,485,393" FontSize="20"><Run Text="9"/></TextBlock>
-        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="94,334,485,312" FontSize="20"><Run Text="12"/></TextBlock>
-        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="94,419,485,225" FontSize="20"><Run Text="15"/></TextBlock>
-        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="94,499,485,147" FontSize="20"><Run Text="18"/></TextBlock>
-        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="94,582,485,65" FontSize="20"><Run Text="21"/></TextBlock>
-        <Image HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="77" Margin="227,581,0,0"/>
-        <Image HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="77" Margin="227,499,0,0"/>
-        <Image HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="77" Margin="227,411,0,0"/>
-        <Image HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="77" Margin="227,334,0,0"/>
-        <Image HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="77" Margin="227,334,0,0"/>
-        <Image HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="77" Margin="227,224,0,0"/>
+        <TextBox x:Name="TextBoxCity"  TextWrapping="Wrap"  Margin="200,135,288.6,591" />
+        <Button Content="Szukaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="67" Margin="367,136,0,0" Height="28"/>
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="200,35,187.6,624" FontSize="30"><Run Text="Pogoda godzinowa"/></TextBlock>
+        <ScrollViewer HorizontalAlignment="Left" Height="522" VerticalAlignment="Top" Width="475" Margin="85,200,0,0">
+
+
+
+
+        </ScrollViewer>
 
     </Grid>
 </Window>

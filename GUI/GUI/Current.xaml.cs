@@ -22,6 +22,9 @@ namespace GUI
         public Current()
         {
             InitializeComponent();
+            //Data Binding dla temperatury: nazwa: Temperature
+          
         }
+
     }
 }
