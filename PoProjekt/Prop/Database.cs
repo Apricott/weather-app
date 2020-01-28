@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.SQLite;
+using WeatherAPIS;
 
 namespace Database
 {
@@ -10,7 +11,6 @@ namespace Database
     {
         static private SQLiteConnection databaseConnection; 
         static private SQLiteCommand databaseCommand;
-        static private SQLiteDataAdapter databaseAdapter;
         static private SQLiteDataReader databaseReader;
 
     //konieczna jest zmiana lokalizacji bazy danych
@@ -60,7 +60,7 @@ namespace Database
         }
     }
     
-    private bool CheckCityTable(string city)
+    static private bool CheckCityTable(string city)
     {
         object[][] result = ExecuteSelectQuery($"Select city from city where city='{city}'", 1);
         if (result.Length != 0)
@@ -114,7 +114,7 @@ namespace Database
         {
             if (!CheckCityTable(location))
             {
-                thrown new ArgumentException("Brak danych dla danego miasta")
+                thrown new ArgumentException("Brak danych dla danego miasta");
             }
             int locationID = System.Convert.ToInt32(ExecuteSelectQuery($"Select id_city from city where city='{location}'", 1));
             object[][] result = ExecuteSelectQuery($@"Select id_entry from weather_data_object where entry_day='{entryDate}'
