@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Database;
+using WeatherAPIS;
+
 
 namespace GUI
 {
@@ -22,6 +25,14 @@ namespace GUI
         public Daily()
         {
             InitializeComponent();
+        }
+        public void Button_6()
+        {
+             Weather currently= GetWeather(TextBoxCity.Text);
+        }
+        public void Button_7()
+        {
+            InsertWeatherData(currently, TextBoxCity.Text);
         }
     }
 }

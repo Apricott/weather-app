@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -27,6 +28,13 @@ namespace WeatherAPIS
             public string summary { get; set; }
             public string icon { get; set; }
             public List<Data> data { get; set; }
+            public override string ToString()
+            {
+                StringBuilder x = new StringBuilder();
+                foreach (Data y in data) x.AppendLine(y.ToString()); 
+                return x.ToString();
+
+            }
         }
 
         public class Data
@@ -38,6 +46,11 @@ namespace WeatherAPIS
             public string pressure { get; set; }
             public string windSpeed { get; set; }
             public string icon { get; set; }
+            public override string ToString()
+            {
+                return (" pogoda na " + time +" to; temperatura " + temperature + " wilgotność " + humidity + " ciśnienie " 
+                    + pressure + " prędkość wiatru " + windSpeed);
+            }
         }
 
 

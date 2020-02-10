@@ -9,112 +9,113 @@ namespace Database
 
     static class Database
     {
-        static private SQLiteConnection databaseConnection; 
+        static private SQLiteConnection databaseConnection;
         static private SQLiteCommand databaseCommand;
         static private SQLiteDataReader databaseReader;
 
-    //konieczna jest zmiana lokalizacji bazy danych
+        //konieczna jest zmiana lokalizacji bazy danych
 
-    private static void ExecuteInsertQuery(string commandText)
-    {
-        using (databaseConnection = new SQLiteConnection(
-            @"Data Source=C:\Users\piotr\source\repos\ConsoleApp4\ConsoleApp4\bazaDanychProjekt.db"))
+        private static void ExecuteInsertQuery(string commandText)
         {
-            databaseConnection.Open();
-            databaseCommand = databaseConnection.CreateCommand();
-            databaseCommand.CommandText = commandText;
-            databaseCommand.ExecuteNonQuery();
-        }
-    }
-//funkcja powyżej służy do wykonywania kwerend które nie zwracają wartości, jak na przykład INSERT albo DROP
-
-    private static object[][] ExecuteSelectQuery(string commandText, int queryColumns)
-    {
-        using (databaseConnection = new SQLiteConnection(
-            @"Data Source=C:\Users\piotr\source\repos\ConsoleApp4\ConsoleApp4\bazaDanychProjekt.db"))
-        {
-            databaseConnection.Open();
-            databaseCommand = databaseConnection.CreateCommand();
-            databaseCommand.CommandText = commandText;
-            databaseReader = databaseCommand.ExecuteReader();
-            LinkedList<object> queryResults = new LinkedList<object>();
-            while (databaseReader.Read())
-            {   
-                for (int i = 0; i < queryColumns; i++)
-                {
-                    queryResults.AddLast(databaseReader.GetValue(i));
-                }
-            }
-            int arrayLength = (queryResults.Count()/queryColumns);
-            object[][] resultsArray = new object[(arrayLength)][];
-            for (int i = 0; i < arrayLength; i++)
+            using (databaseConnection = new SQLiteConnection(
+                @"Data Source=C:\Users\piotr\source\repos\ConsoleApp4\ConsoleApp4\bazaDanychProjekt.db"))
             {
-                resultsArray[i] = new object[queryColumns];
-                for (int j = 0; j < queryColumns; j++)
-                {
-                    resultsArray[i][j] = queryResults.First.Value;
-                    queryResults.RemoveFirst();
-                }
+                databaseConnection.Open();
+                databaseCommand = databaseConnection.CreateCommand();
+                databaseCommand.CommandText = commandText;
+                databaseCommand.ExecuteNonQuery();
             }
-            return resultsArray;
         }
-    }
-    
-    static private bool CheckCityTable(string city)
-    {
-        object[][] result = ExecuteSelectQuery($"Select city from city where city='{city}'", 1);
-        if (result.Length != 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+        //funkcja powyżej służy do wykonywania kwerend które nie zwracają wartości, jak na przykład INSERT albo DROP
 
-    static public void InsertWeatherData(WeatherAPI.Weather entry, string location)
-    {
-        if (!CheckCityTable(location))
+        private static object[][] ExecuteSelectQuery(string commandText, int queryColumns)
         {
-            ExecuteInsertQuery($"Insert into city (city) values {location}");
+            using (databaseConnection = new SQLiteConnection(
+                @"Data Source=C:\Users\piotr\source\repos\ConsoleApp4\ConsoleApp4\bazaDanychProjekt.db"))
+            {
+                databaseConnection.Open();
+                databaseCommand = databaseConnection.CreateCommand();
+                databaseCommand.CommandText = commandText;
+                databaseReader = databaseCommand.ExecuteReader();
+                LinkedList<object> queryResults = new LinkedList<object>();
+                while (databaseReader.Read())
+                {
+                    for (int i = 0; i < queryColumns; i++)
+                    {
+                        queryResults.AddLast(databaseReader.GetValue(i));
+                    }
+                }
+                int arrayLength = (queryResults.Count() / queryColumns);
+                object[][] resultsArray = new object[(arrayLength)][];
+                for (int i = 0; i < arrayLength; i++)
+                {
+                    resultsArray[i] = new object[queryColumns];
+                    for (int j = 0; j < queryColumns; j++)
+                    {
+                        resultsArray[i][j] = queryResults.First.Value;
+                        queryResults.RemoveFirst();
+                    }
+                }
+                return resultsArray;
+            }
         }
-        int cityID = System.Convert.ToInt32(ExecuteSelectQuery($"Select id_city from city where city='{location}'", 1));
 
-        ExecuteInsertQuery($"Insert into weather_data_object (entry_day, id_city) values ({System.DateTime.Now.DayOfYear}, {cityID}};");
+        static private bool CheckCityTable(string city)
+        {
+            object[][] result = ExecuteSelectQuery($"Select city from city where city='{city}'", 1);
+            if (result.Length != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
-        int objectID = System.Convert.ToInt32(ExecuteSelectQuery($@"Select id_object from weather_data_object where id_city='{cityID}' 
+        static public void InsertWeatherData(WeatherAPI.Weather entry, string location)
+        {
+            if (!CheckCityTable(location))
+            {
+                ExecuteInsertQuery($"Insert into city (city) values {location}");
+            }
+            int cityID = System.Convert.ToInt32(ExecuteSelectQuery($"Select id_city from city where city='{location}'", 1));
+
+            ExecuteInsertQuery($"Insert into weather_data_object (entry_day, id_city) values ({System.DateTime.Now.DayOfYear}, {cityID}}};");
+
+            int objectID = System.Convert.ToInt32(ExecuteSelectQuery($@"Select id_object from weather_data_object where id_city='{cityID}' 
             and entry_day ='{System.DateTime.Now.DayOfYear}'", 1));
 
-        int order = 0
+            int order = 0;
+
 
         ExecuteInsertQuery($@"Insert into weather (time_recorded, summary, temperature_celsius, humidity, pressure_hPa, 
             wind_speed, type_of_forecast, id_object, list_order) values ('{entry.currently.time}', '{entry.currently.summary}',
             '{entry.currently.temperature}', '{entry.currently.humidity}', '{entry.currently.pressure}', '{entry.currently.windSpeed}', 
             'current', '{objectID}', '{++order}')");
 
-        foreach (WeatherAPI.Data element in entry.hourly.data)
-        {
-            ExecuteInsertQuery($@"Insert into weather (time_recorded, summary, temperature_celsius, humidity, pressure_hPa, 
+            foreach (WeatherAPI.Data element in entry.hourly.data)
+            {
+                ExecuteInsertQuery($@"Insert into weather (time_recorded, summary, temperature_celsius, humidity, pressure_hPa, 
                 wind_speed,  type_of_forecast, id_object) values ('{element.time}', '{element.summary}',
                 '{element.temperature}', '{element.humidity}', '{element.pressure}', '{element.windSpeed}', 
                 'hourly', '{objectID}', '{++order}')");
-        }
+            }
 
-        foreach (WeatherAPI.Data element in entry.daily.data)
-        {
-            ExecuteInsertQuery($@"Insert into weather (time_recorded, summary, temperature_celsius, humidity, pressure_hPa, 
+            foreach (WeatherAPI.Data element in entry.daily.data)
+            {
+                ExecuteInsertQuery($@"Insert into weather (time_recorded, summary, temperature_celsius, humidity, pressure_hPa, 
                 wind_speed, type_of_forecast, id_object) values ('{element.time}', '{element.summary}',
                 '{element.temperature}', '{element.humidity}', '{element.pressure}', '{element.windSpeed}', 
                 'daily', '{objectID}', '{++order}')");
+            }
         }
-    }
 
-    static public WeatherAPI.Weather ExtractWeatherData(int entryDate, string location)
+        static public WeatherAPI.Weather ExtractWeatherData(int entryDate, string location)
         {
             if (!CheckCityTable(location))
             {
-                thrown new ArgumentException("Brak danych dla danego miasta");
+                throw new ArgumentException("Brak danych dla danego miasta");
             }
             int locationID = System.Convert.ToInt32(ExecuteSelectQuery($"Select id_city from city where city='{location}'", 1));
             object[][] result = ExecuteSelectQuery($@"Select id_entry from weather_data_object where entry_day='{entryDate}'
@@ -151,7 +152,7 @@ namespace Database
                 ListElement.pressure = Convert.ToString(data[4]);
                 ListElement.windSpeed = Convert.ToString(data[5]);
                 if (Convert.ToString(data[6]) == "hourly")
-                { 
+                {
                     ExtractedWeatherData.hourly.data.Add(ListElement);
                 } else
                 {
@@ -160,4 +161,4 @@ namespace Database
             }
             return ExtractedWeatherData;
         }
-}
+    } }

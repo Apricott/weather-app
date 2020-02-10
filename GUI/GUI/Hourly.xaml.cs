@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
+
+
 namespace GUI
 {
     /// <summary>
@@ -21,7 +24,14 @@ namespace GUI
     {
         public Hourly()
         {
+
             InitializeComponent();
         }
+        public void Button_Click(object sender, RoutedEventArgs e)
+        {
+           Weather current= GetWeather(TextBoxCity.Text);
+            TextBoxTemp.Text= current.hourly.ToString();;
+        }
     }
+    
 }

@@ -2,7 +2,7 @@
 using static WeatherAPIS.GeocodingAPI;
 using static WeatherAPIS.WeatherAPI;
 
-namespace WeatherAPIS 
+namespace WeatherAPIS
 {
 	public class WeatherData
 	{
