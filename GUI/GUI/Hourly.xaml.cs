@@ -11,7 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using static WeatherAPIS.WeatherAPI;
+using WeatherAPIS;
 
 
 
@@ -22,15 +23,31 @@ namespace GUI
     /// </summary>
     public partial class Hourly : Window
     {
+
+        Weather currently = null;
+
         public Hourly()
         {
 
             InitializeComponent();
         }
-        public void Button_Click(object sender, RoutedEventArgs e)
+        public void Button_4(object sender, RoutedEventArgs e)
         {
-           Weather current= GetWeather(TextBoxCity.Text);
-            TextBoxTemp.Text= current.hourly.ToString();;
+            Weather currently = WeatherData.GetWeather(TextBoxCity.Text);
+
+            StringBuilder s = new StringBuilder();
+
+            foreach (Data y in currently.hourly.data)
+            {
+                s.AppendLine(y.ToString() + Environment.NewLine);
+            }
+
+
+            TextBoxSummary.Text = s + Environment.NewLine + currently.hourly.summary;
+        }
+        public void Button_5(object sender, RoutedEventArgs e)
+        {
+            Database.Database.InsertWeatherData(currently, TextBoxCity.Text);
         }
     }
     

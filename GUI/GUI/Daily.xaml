@@ -6,20 +6,25 @@
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
         Title="Daily" Height="450" Width="643.617">
-    <Grid Margin="0,0,-6.4,-20">
+    
+    <Grid Margin="0,0,3.6,3">
+        
         <Grid.Background>
             <ImageBrush ImageSource="/Images/sky.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>
-        
-        <TextBox x:Name="TextBoxCity"  TextWrapping="Wrap"  Margin="162,86,325,322" />
-        
-        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="387,86,200,295" FontSize="20"><Run /><Run Text="Data"/></TextBlock>
-        <Button Content="Szukaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="67" Margin="285,141,0,0" Height="28" Click="Button_6"/>
+
+        <TextBox x:Name="TextBoxCity"  TextWrapping="Wrap"  Margin="185,98,297,282" />
+        <Button Content="Szukaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="67" Margin="367,98,0,0" Height="28" Click="Button_6"/>
         <Image x:Name="WeatherIcon" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="162,213,0,0"/>
         <TextBlock x:Name="TextBoxTemp" Text = "{Binding Temperature, Mode = OneWay}" FontWeight="Light" FontSize="50" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="387,213,0,0" Height="100" Width="109"/>
-
-        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="79,86,494,295" FontSize="20"><Run /><Run Text="Miasto"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="95,191,489,173" FontSize="20"><Run /><Run Text="Opis"/></TextBlock>
+        <TextBox x:Name="TextBoxSummary" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"  Margin="162,156,165,74" />
         <Button Content="Zapisz pogodę w bazie danych" HorizontalAlignment="Left" VerticalAlignment="Top" Width="226" Margin="208,368,0,0" Click="Button_7"/>
+
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="10,0,36,348" FontSize="30"><Run Text="Dla jakiego miejsca chcesz sprawdzić pogodę"/></TextBlock>
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="252,243,0,0"/>
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="95,98,453,266" FontSize="20"><Run /><Run Text="Miasto"/></TextBlock>
+        <Button Content="Zapisz aktualną pogodę w bazie danych" HorizontalAlignment="Left" VerticalAlignment="Top" Width="226" Margin="208,368,0,0"/>
 
     </Grid>
 </Window>

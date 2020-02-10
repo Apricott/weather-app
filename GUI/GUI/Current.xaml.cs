@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static WeatherAPIS.WeatherAPI;
 using WeatherAPIS;
 
 namespace GUI
@@ -20,20 +21,20 @@ namespace GUI
     /// </summary>
     public partial class Current : Window
     {
+        Weather current = null;
+
         public Current()
         {
             InitializeComponent();
-            //Data Binding dla temperatury: nazwa: Temperature
-          
         }
         public void Button_4(object sender, RoutedEventArgs e)
         {
-            Weather current= GetWeather(TextBoxCity.Text);
+            current = WeatherData.GetWeather(TextBoxCity.Text);
             TextBoxTemp.Text= current.currently.ToString();
         }
         public void Button_5(object sender, RoutedEventArgs e)
         {
-            InsertWeatherData(TextBoxCity.Text, current);
+            Database.Database.InsertWeatherData(current, TextBoxCity.Text);
         }
     }
 }

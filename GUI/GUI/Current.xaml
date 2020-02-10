@@ -10,11 +10,14 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Images/sky.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>
-        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="208,36,201.2,323" FontSize="30"><Run Text="Aktualna pogoda"/><Run/></TextBlock>
         <Image x:Name="WeatherIcon" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="208,189,0,0"/>
         <Button Content="Zapisz aktualną pogodę w bazie danych" HorizontalAlignment="Left" VerticalAlignment="Top" Width="226" Margin="208,322,0,0" Click="Button_5"/>
         <TextBox x:Name="TextBoxCity"  TextWrapping="Wrap"  Margin="206,97,282.2,295" />
-        <TextBlock x:Name="TextBoxTemp" Text = "{Binding Temperature, Mode = OneWay}" FontWeight="Light" FontSize="50" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="344,189,0,0" Height="100" Width="90"/>
+        <TextBlock Text = "{Binding Temperature, Mode = OneWay}" FontWeight="Light" FontSize="50" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="344,189,0,0" Height="100" Width="90"/>
         <Button Content="Szukaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="67" Margin="367,97,0,0" Height="28" Click="Button_4"/>
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="208,46,201.2,323" FontSize="30"><Run Text="Aktualna pogoda"/></TextBlock>
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="272,141,0,0"/>
+        <TextBox x:Name="TextBoxTemp" HorizontalAlignment="Left" Height="118" TextWrapping="Wrap" Text="//tutaj opis pogody" VerticalAlignment="Top" Width="226" Margin="208,189,0,0"/>
+
     </Grid>
 </Window>

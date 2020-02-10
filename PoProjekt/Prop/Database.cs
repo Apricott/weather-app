@@ -7,7 +7,7 @@ using WeatherAPIS;
 namespace Database
 {
 
-    static class Database
+    public class Database
     {
         static private SQLiteConnection databaseConnection;
         static private SQLiteCommand databaseCommand;
@@ -18,7 +18,7 @@ namespace Database
         private static void ExecuteInsertQuery(string commandText)
         {
             using (databaseConnection = new SQLiteConnection(
-                @"Data Source=C:\Users\piotr\source\repos\ConsoleApp4\ConsoleApp4\bazaDanychProjekt.db"))
+                @"Data Source=bazaDanychProjekt.db"))
             {
                 databaseConnection.Open();
                 databaseCommand = databaseConnection.CreateCommand();
@@ -31,8 +31,8 @@ namespace Database
         private static object[][] ExecuteSelectQuery(string commandText, int queryColumns)
         {
             using (databaseConnection = new SQLiteConnection(
-                @"Data Source=C:\Users\piotr\source\repos\ConsoleApp4\ConsoleApp4\bazaDanychProjekt.db"))
-            {
+                @"Data Source=bazaDanychProjekt.db"))
+            { 
                 databaseConnection.Open();
                 databaseCommand = databaseConnection.CreateCommand();
                 databaseCommand.CommandText = commandText;

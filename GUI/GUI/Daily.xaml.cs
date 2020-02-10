@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Database;
+using static WeatherAPIS.WeatherAPI;
 using WeatherAPIS;
 
 
@@ -22,17 +23,22 @@ namespace GUI
     /// </summary>
     public partial class Daily : Window
     {
+
+        Weather currently = null;
+
+
         public Daily()
         {
             InitializeComponent();
         }
-        public void Button_6()
+        public void Button_6(object sender, RoutedEventArgs e)
         {
-             Weather currently= GetWeather(TextBoxCity.Text);
+             Weather currently = WeatherData.GetWeather(TextBoxCity.Text);
+            TextBoxSummary.Text = currently.daily.summary + Environment.NewLine + currently.daily.ToString();
         }
-        public void Button_7()
+        public void Button_7(object sender, RoutedEventArgs e)
         {
-            InsertWeatherData(currently, TextBoxCity.Text);
+            Database.Database.InsertWeatherData(currently, TextBoxCity.Text);
         }
     }
 }

@@ -47,7 +47,5 @@ namespace GUI
             daily.Show();
             this.Close();
         }
-
-        
     }
 }

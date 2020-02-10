@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherAPIS;
 using static WeatherAPIS.WeatherAPI;
-using consoleApp6.properties;
 using Database;
 
 namespace PoProjekt

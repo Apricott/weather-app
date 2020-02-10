@@ -25,20 +25,27 @@ namespace WeatherAPIS
 
         public class Section
         {
+            DateTime datetime = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+
             public string summary { get; set; }
             public string icon { get; set; }
             public List<Data> data { get; set; }
             public override string ToString()
             {
                 StringBuilder x = new StringBuilder();
-                foreach (Data y in data) x.AppendLine(y.ToString()); 
-                return x.ToString();
+                //foreach (Data y in data) x.AppendLine(y.ToString() + Environment.NewLine); 
+                //return x.ToString();
 
+                foreach (Data y in data) x.Append(Environment.NewLine + "Pogoda na " + datetime.AddSeconds(double.Parse(y.time)).ToShortDateString() +
+                    Environment.NewLine + y.summary + Environment.NewLine);
+                return x.ToString();
             }
         }
 
         public class Data
         {
+            DateTime datetime = new DateTime(1970,1,1,0,0,0,0);
+
             public string time { get; set; }
             public string summary { get; set; }
             public string temperature { get; set; }
@@ -48,8 +55,9 @@ namespace WeatherAPIS
             public string icon { get; set; }
             public override string ToString()
             {
-                return (" pogoda na " + time +" to; temperatura " + temperature + " wilgotność " + humidity + " ciśnienie " 
-                    + pressure + " prędkość wiatru " + windSpeed);
+                return ("Pogoda na " + datetime.AddSeconds(double.Parse(time)).ToString() + Environment.NewLine +
+                    " temperatura " + temperature + " C" + Environment.NewLine + " wilgotność " + humidity + " %" + Environment.NewLine +
+                    " ciśnienie " + pressure + " hPa" + Environment.NewLine + " prędkość wiatru " + windSpeed + " m/s"); ;
             }
         }
 

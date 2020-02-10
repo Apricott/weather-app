@@ -5,20 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="Hourly" Height="450" Width="641.6">
-    <Grid Margin="0,0,-0.4,-335">
+        Title="Hourly" Height="450" Width="643.617">
+    
+    <Grid Margin="0,0,3.6,3">
+
         <Grid.Background>
             <ImageBrush ImageSource="/Images/sky.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>
-        <TextBox x:Name="TextBoxCity"  TextWrapping="Wrap"  Margin="200,135,288.6,591" />
-        <Button Content="Szukaj" HorizontalAlignment="Left" Click="Button_Click" VerticalAlignment="Top" Width="67" Margin="367,136,0,0" Height="28"/>
-        <TextBlock TextWrapping="Wrap" FontWeight="Light"  Margin="200,35,187.6,624" FontSize="30"><Run Text="Pogoda godzinowa"/></TextBlock>
-        <ScrollViewer HorizontalAlignment="Left" Height="522" VerticalAlignment="Top" Width="475" Margin="85,200,0,0">
 
+        <TextBox x:Name="TextBoxCity"  TextWrapping="Wrap"  Margin="185,98,297,282" />
+        <Button Content="Szukaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="67" Margin="367,98,0,0" Height="28" Click="Button_4"/>
+        <Image x:Name="WeatherIcon" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="162,213,0,0"/>
+        <TextBlock x:Name="TextBoxTemp" Text = "{Binding Temperature, Mode = OneWay}" FontWeight="Light" FontSize="50" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="387,213,0,0" Height="100" Width="109"/>
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="95,191,489,173" FontSize="20"><Run /><Run Text="Opis"/></TextBlock>
+        <TextBox x:Name="TextBoxSummary" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"  Margin="162,156,165,74" />
+        <Button Content="Zapisz pogodę w bazie danych" HorizontalAlignment="Left" VerticalAlignment="Top" Width="226" Margin="208,368,0,0" Click="Button_5"/>
 
-
-
-        </ScrollViewer>
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="10,0,0,339" FontSize="30"><Run Text="Dla jakiego miejsca chcesz sprawdzić pogodę?"/></TextBlock>
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="252,243,0,0"/>
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="95,98,453,266" FontSize="20"><Run /><Run Text="Miasto"/></TextBlock>
 
     </Grid>
 </Window>
