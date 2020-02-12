@@ -13,12 +13,12 @@ namespace Database
         static private SQLiteCommand databaseCommand;
         static private SQLiteDataReader databaseReader;
 
-        //konieczna jest zmiana lokalizacji bazy danych
+            //konieczna jest zmiana lokalizacji bazy danych
 
         private static void ExecuteInsertQuery(string commandText)
         {
             using (databaseConnection = new SQLiteConnection(
-                @"Data Source=bazaDanychProjekt.db"))
+                @"Data Source=|DataDirectory|\bazaDanychProjekt.db; New=False"))
             {
                 databaseConnection.Open();
                 databaseCommand = databaseConnection.CreateCommand();
@@ -31,7 +31,7 @@ namespace Database
         private static object[][] ExecuteSelectQuery(string commandText, int queryColumns)
         {
             using (databaseConnection = new SQLiteConnection(
-                @"Data Source=bazaDanychProjekt.db"))
+                @"Data Source=|DataDirectory|\bazaDanychProjekt.db; New=False"))
             { 
                 databaseConnection.Open();
                 databaseCommand = databaseConnection.CreateCommand();
