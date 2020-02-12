@@ -71,7 +71,7 @@ namespace Database
             {
                 if (!CheckCityTable(location))
                 {
-                    ExecuteInsertQuery($"Insert into city (city) values {location}");
+                    ExecuteInsertQuery($"Insert into city (city) values ('{location}')");
                 }
                 int cityID = System.Convert.ToInt32(ExecuteSelectQuery($"Select id_city from city where city='{location}'", 1)[0][0]);
 
