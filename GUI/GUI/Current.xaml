@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="Current" Height="450" Width="641.6">
+        Title="Current" Height="450" Width="642">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Images/sky.jpeg" Stretch="UniformToFill"/>
@@ -17,7 +17,8 @@
         <Button Content="Szukaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="67" Margin="367,97,0,0" Height="28" Click="Button_4"/>
         <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="208,46,201.2,323" FontSize="30"><Run Text="Aktualna pogoda"/></TextBlock>
         <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="272,141,0,0"/>
-        <TextBox x:Name="TextBoxTemp" HorizontalAlignment="Left" Height="118" TextWrapping="Wrap" Text="//tutaj opis pogody" VerticalAlignment="Top" Width="226" Margin="208,189,0,0"/>
-
+        <TextBox x:Name="TextBoxTemp" HorizontalAlignment="Left" Height="162" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="355" Margin="134,150,0,0"/>
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="119,94,428.2,270" FontSize="20"><Run /><Run Text="Miasto"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="77,185,506.2,179" FontSize="20"><Run /><Run Text="Opis"/></TextBlock>
     </Grid>
 </Window>

@@ -20,11 +20,9 @@
         <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="95,191,489,173" FontSize="20"><Run /><Run Text="Opis"/></TextBlock>
         <TextBox x:Name="TextBoxSummary" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"  Margin="162,156,165,74" />
         <Button Content="Zapisz pogodę w bazie danych" HorizontalAlignment="Left" VerticalAlignment="Top" Width="226" Margin="208,368,0,0" Click="Button_7"/>
-
         <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="10,0,36,348" FontSize="30"><Run Text="Dla jakiego miejsca chcesz sprawdzić pogodę"/></TextBlock>
         <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="252,243,0,0"/>
         <TextBlock TextWrapping="Wrap" FontWeight="Light" Margin="95,98,453,266" FontSize="20"><Run /><Run Text="Miasto"/></TextBlock>
-        <Button Content="Zapisz aktualną pogodę w bazie danych" HorizontalAlignment="Left" VerticalAlignment="Top" Width="226" Margin="208,368,0,0"/>
 
     </Grid>
 </Window>
